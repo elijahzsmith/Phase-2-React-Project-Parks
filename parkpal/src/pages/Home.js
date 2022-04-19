@@ -8,17 +8,8 @@ import Search from "../components/Search.js";
 function Home({ parksList }) {
   const [showDetails, setShowDetails] = useState(false);
   const [parkDetails, setParkDetails] = useState({});
+  const [currSearch, setCurrSearch] = useState("");
 
-  //const parkInfo = parksList.filter(() => {});
-
-  // const toShowDetails = (park) => {
-  //   console.log(park);
-  //   const renderDetails = parksList.filter((thisPark) =>
-  //     park.id === thisPark.id ? <ParkCard key={park.id} /> : null
-  //   );
-  //   console.log(renderDetails);
-  //   return renderDetails;
-  // };
   const viewDetails = (park) => {
     console.log(park);
     setShowDetails((showDetails) => !showDetails);
@@ -39,10 +30,22 @@ function Home({ parksList }) {
         <div>
           <div>
             <img
-              src="https://www.ourescapeclause.com/wp-content/uploads/2020/11/shutterstock_295670498-scaled.jpg"
+              //src="https://www.ourescapeclause.com/wp-content/uploads/2020/11/shutterstock_295670498-scaled.jpg"
+              src="https://images.fineartamerica.com/images-medium-large-5/arches-national-park-panorama-dave-mills.jpg"
               alt="other"
               className="background-img"
             ></img>
+            <form>
+              <span>
+                <input
+                  type="text"
+                  name="search"
+                  value={currSearch}
+                  placeholder="search..."
+                ></input>
+                <button>Search</button>
+              </span>
+            </form>
           </div>
           <ParksList parksList={parksList} someAction={viewDetails} />
         </div>

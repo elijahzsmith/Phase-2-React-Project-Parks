@@ -7,7 +7,7 @@ function ParksList({ parksList, someAction }) {
     return <ParkCard key={park.id} park={park} someAction={someAction} />;
   });
 
-  return <div>{renderParks}</div>;
+  return <div className="wrapper">{renderParks}</div>;
 }
 
 export default ParksList;

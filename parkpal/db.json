@@ -1,0 +1,22 @@
+{
+  "parks": [
+    {
+      "id": 1,
+      "activities": [],
+      "addresses": [],
+      "description": "",
+      "images": [],
+      "name": "",
+      "states": ""
+    },
+    {
+      "id": 2,
+      "activities": [],
+      "addresses": [],
+      "description": "",
+      "images": [],
+      "name": "",
+      "states": ""
+    }
+  ]
+}

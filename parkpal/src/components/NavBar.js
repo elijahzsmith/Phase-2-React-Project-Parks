@@ -5,9 +5,10 @@ const linkStyles = {
   width: "100px",
   padding: "12px",
   margin: "0 6px 6px",
-  background: "blue",
+  background: "#C56C39",
   textDecoration: "none",
   color: "white",
+  radius: "25px",
 };
 
 function NavBar() {

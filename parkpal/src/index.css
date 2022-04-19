@@ -20,7 +20,7 @@ code {
   border: 1px solid black;
 }
 
-img {
+.cardimg {
   max-width: 400px;
   height: 300px;
 }
@@ -47,4 +47,21 @@ nav {
   padding-bottom: 15px;
   height: 60px;
   width: auto;
+}
+
+.background-img {
+  height: auto;
+  width: 100%;
+}
+
+.wrapper {
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.detailimg {
+  max-width: 400px;
+  height: 300px;
 }

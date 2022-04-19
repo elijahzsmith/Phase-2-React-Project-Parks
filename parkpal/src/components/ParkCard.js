@@ -33,10 +33,18 @@ function ParkCard({ park, someAction }) {
     someAction(park);
   };
 
+  const handleAdd = () => {
+    console.log("Clicked!");
+  };
+
+  const handleBeenHere = () => {
+    console.log("Clicked!");
+  };
+  // dont render a more button for parks that dont have the necessary data
   return (
     <div className="ui-card">
       ParkCard
-      <img src={images[0].url} alt="ParkImg" />
+      <img src={images[0].url} alt="ParkImg" className="cardimg" />
       <h3>{name}</h3>
       {/* <NavLink exact path="/details"> */}
       {/* <Link exact path="/details"> */}
@@ -47,10 +55,11 @@ function ParkCard({ park, someAction }) {
       </button>
       {/* </Link> */}
       {/* </NavLink> */}
+      <h4>{states}</h4>
       <h4>{description}</h4>
       <span>
-        <button>Add To Bucket List</button>
-        <button>I've Been Here!</button>
+        <button onClick={handleAdd}>Add To Bucket List</button>
+        <button onClick={handleBeenHere}>I've Been Here!</button>
       </span>
     </div>
   );
