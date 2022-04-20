@@ -8,13 +8,8 @@ import Scavenger from "../pages/Scavenger.js";
 
 function App() {
   const [parksList, setParksList] = useState([]);
-
-  // const fetchThis = () => {
-  //   fetch("http://localhost:3000/parks")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // };
-  // fetchThis();
+  const [inBucketList, setInBucketList] = useState([]);
+  const [inBeenThere, setInBeenThere] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -26,16 +21,20 @@ function App() {
       });
   }, []);
 
-  const addToFavorites = () => {
-    // basically I will need to take
-  };
+  const addToFavorites = () => {};
 
   return (
     <div className="App">
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home parksList={parksList} />
+          <Home
+            parksList={parksList}
+            setInBucketList={setInBucketList}
+            setInBeenThere={setInBeenThere}
+            inBucketList={inBucketList}
+            inBeenThere={inBeenThere}
+          />
         </Route>
         <Route exact path="/favorites">
           <Favorites parksList={parksList} />

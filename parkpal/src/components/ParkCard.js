@@ -1,7 +1,13 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
 
-function ParkCard({ park, someAction }) {
+function ParkCard({
+  park,
+  someAction,
+  setInBucketList,
+  setInBeenThere,
+  inBucketList,
+  inBeenThere,
+}) {
   const {
     id,
     url,
@@ -28,41 +34,72 @@ function ParkCard({ park, someAction }) {
     weatherInfo,
   } = park;
 
+  const newFavorite = {
+    description: description,
+    images: images,
+    name: name,
+    states: states,
+  };
+  //console.log("new favorite", newFavorite);
+
+  const configObjPOST = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newFavorite),
+  };
+
   const handleClick = (park) => {
-    console.log(park);
     someAction(park);
   };
 
-  const handleAdd = () => {
-    console.log("Clicked!");
+  const handleBucketList = (park) => {
+    console.log("Clicked Bucket List!", park);
+    console.log("Clicked Been Here!", park);
+    fetch(`http://localhost:3000/parks`, configObjPOST)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setInBucketList([...inBucketList, data]);
+      });
   };
 
-  const handleBeenHere = () => {
-    console.log("Clicked!");
+  const handleBeenHere = (park) => {
+    console.log("Clicked Been Here!", park);
+    fetch(`http://localhost:3000/parks`, configObjPOST)
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data);
+        setInBeenThere([...inBeenThere, data]);
+      });
   };
-  // dont render a more button for parks that dont have the necessary data
+
+  console.log("updated been there", inBeenThere);
   return (
     <div className="ui-card">
-      ParkCard
       <img src={images[0].url} alt="ParkImg" className="cardimg" />
       <h3>{name}</h3>
-      {/* <NavLink exact path="/details"> */}
-      {/* <Link exact path="/details"> */}
+      <h4>{designation}</h4>
+      <h4>
+        <em>{states}, US</em>
+      </h4>
       <button onClick={() => handleClick(park)}>
         <strong>
           <em>More Info</em>
         </strong>
       </button>
-      {/* </Link> */}
-      {/* </NavLink> */}
-      <h4>{states}</h4>
-      <h4>{description}</h4>
+      <p>{description}</p>
       <span>
-        <button onClick={handleAdd}>Add To Bucket List</button>
-        <button onClick={handleBeenHere}>I've Been Here!</button>
+        <button onClick={() => handleBucketList(park)}>
+          Add To Bucket List
+        </button>
+        <button onClick={() => handleBeenHere(park)}>I've Been Here!</button>
       </span>
     </div>
   );
 }
 
 export default ParkCard;
+
+// dont render a more button for parks that dont have the necessary data

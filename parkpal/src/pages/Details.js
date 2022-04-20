@@ -1,16 +1,22 @@
 import React from "react";
 
 function Details({ park }) {
-  console.log(park);
+  //console.log(park);
 
   const renderAllImages = park.images.map((image) => {
-    return <img src={image.url} alt={image.title} className="detailimg"></img>;
+    return (
+      <div>
+        <img src={image.url} alt={image.title} className="detailimg"></img>
+        <p>{image.title}</p>
+      </div>
+    );
   });
 
-  //   const renderAllActivities = park.activites.map((activity) => {
-  //     console.log(activity);
-  //     // return <h3 key={activity.name}>{activity.name}</h3>;
-  //   });
+  const renderActivities = park.activities.map((activity) => {
+    return <li key={activity.name}>{activity.name}</li>;
+  });
+
+  //const render
 
   return (
     <div>
@@ -20,8 +26,10 @@ function Details({ park }) {
       <h2>{park.name}</h2>
       <h4>{park.description}</h4>
       <div>
-        {/* <h3>{park.activities.name}</h3> */}
-        {/* {renderAllActivities} */}
+        <h4>Activities:</h4>
+        <ul>{renderActivities}</ul>
+        <h4>Weather Info</h4>
+        <h5>{park.weatherInfo}</h5>
       </div>
       <div className="more-info">
         <h3>Directions</h3>
@@ -38,7 +46,7 @@ function Details({ park }) {
             <h6>{park.entrancePasses[0]}</h6>
           </div>
         )}
-        {renderAllImages}
+        <div className="details-photo-wrapper">{renderAllImages}</div>
       </div>
     </div>
   );
