@@ -6,11 +6,13 @@ function BeenThere({ inBeenThere }) {
     console.log(park);
     return <ParkCardFavorites park={park} />;
   });
-  console.log(renderBeenThere);
+  const thisManyDown = inBeenThere.length;
 
   return (
     <div>
       <h1>Already Been 🌲</h1>
+      <h2>{thisManyDown} down</h2>
+      {thisManyDown > 4 ? <h3>Well traveled!</h3> : null}
       {renderBeenThere}
     </div>
   );

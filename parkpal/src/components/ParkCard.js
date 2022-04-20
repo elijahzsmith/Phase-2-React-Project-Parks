@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function ParkCard({
   park,
@@ -34,6 +35,8 @@ function ParkCard({
     weatherInfo,
   } = park;
 
+  const history = useHistory();
+
   const newFavorite = {
     description: description,
     images: images,
@@ -53,6 +56,10 @@ function ParkCard({
     someAction(park);
   };
 
+  const handleHistory = () => {
+    history.push("/details");
+  };
+
   const handleBucketList = (park) => {
     console.log("Clicked Bucket List!", park);
     console.log("Clicked Been Here!", park);
@@ -60,7 +67,7 @@ function ParkCard({
       .then((res) => res.json())
       .then((data) => {
         setInBucketList([...inBucketList, data]);
-        alert("Added to Bucket List!");
+        //alert("Added to Bucket List!");
       });
   };
 
@@ -70,7 +77,7 @@ function ParkCard({
       .then((res) => res.json())
       .then((data) => {
         setInBeenThere([...inBeenThere, data]);
-        alert("Added to Your Parks!");
+        //alert("Added to Your Parks!");
       });
   };
 
