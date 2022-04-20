@@ -37,7 +37,11 @@ function App() {
           />
         </Route>
         <Route exact path="/favorites">
-          <Favorites parksList={parksList} />
+          <Favorites
+            parksList={parksList}
+            inBucketList={inBucketList}
+            inBeenThere={inBeenThere}
+          />
         </Route>
         <Route exact path="/scavenger">
           <Scavenger parksList={parksList} />
