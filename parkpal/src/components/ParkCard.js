@@ -40,7 +40,6 @@ function ParkCard({
     name: name,
     states: states,
   };
-  //console.log("new favorite", newFavorite);
 
   const configObjPOST = {
     method: "POST",
@@ -60,8 +59,8 @@ function ParkCard({
     fetch(`http://localhost:3000/parks`, configObjPOST)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setInBucketList([...inBucketList, data]);
+        alert("Added to Bucket List!");
       });
   };
 
@@ -70,12 +69,11 @@ function ParkCard({
     fetch(`http://localhost:3000/parks`, configObjPOST)
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         setInBeenThere([...inBeenThere, data]);
+        alert("Added to Your Parks!");
       });
   };
 
-  console.log("updated been there", inBeenThere);
   return (
     <div className="ui-card">
       <img src={images[0].url} alt="ParkImg" className="cardimg" />
