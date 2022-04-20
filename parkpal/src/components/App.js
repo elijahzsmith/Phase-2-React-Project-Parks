@@ -10,6 +10,7 @@ function App() {
   const [parksList, setParksList] = useState([]);
   const [inBucketList, setInBucketList] = useState([]);
   const [inBeenThere, setInBeenThere] = useState([]);
+  const [currSearch, setCurrSearch] = useState("");
 
   useEffect(() => {
     fetch(
@@ -20,8 +21,6 @@ function App() {
         setParksList(parksData.data);
       });
   }, []);
-
-  const addToFavorites = () => {};
 
   return (
     <div className="App">
@@ -34,6 +33,8 @@ function App() {
             setInBeenThere={setInBeenThere}
             inBucketList={inBucketList}
             inBeenThere={inBeenThere}
+            currSearch={currSearch}
+            setCurrSearch={setCurrSearch}
           />
         </Route>
         <Route exact path="/favorites">
@@ -41,6 +42,8 @@ function App() {
             parksList={parksList}
             inBucketList={inBucketList}
             inBeenThere={inBeenThere}
+            currSearch={currSearch}
+            setCurrSearch={setCurrSearch}
           />
         </Route>
         <Route exact path="/scavenger">

@@ -8,10 +8,12 @@ function Home({
   setInBeenThere,
   inBucketList,
   inBeenThere,
+  currSearch,
+  setCurrSearch,
 }) {
   const [showDetails, setShowDetails] = useState(false);
   const [parkDetails, setParkDetails] = useState({});
-  const [currSearch, setCurrSearch] = useState("");
+  //const [currSearch, setCurrSearch] = useState("");
 
   const viewDetails = (park) => {
     setShowDetails((showDetails) => !showDetails);
@@ -50,6 +52,7 @@ function Home({
             setInBeenThere={setInBeenThere}
             inBucketList={inBucketList}
             inBeenThere={inBeenThere}
+            currSearch={currSearch}
           />
         </div>
       )}

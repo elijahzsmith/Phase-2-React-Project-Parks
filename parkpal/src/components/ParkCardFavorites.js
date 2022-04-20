@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 
-function ParkCardFavorites({ park }) {
-  // make state for the value of comments
-
-  //   const handleChange = (e) => {
-  //     console.log(e.target.value);
-  //     setCurrSearch(e.target.value);
-  //   };
+function ParkCardFavorites({ park, currSearch, setCurrSearch }) {
+  console.log(currSearch);
 
   return (
     <div>
@@ -24,20 +19,16 @@ function ParkCardFavorites({ park }) {
         </button>
         <p>{park.description}</p>
         <span>
-          <form>
-            <span>
-              <input
-                // onChange={(e) => handleChange(e)}
-                type="text"
-                name="comment"
-                value=""
-                placeholder="Leave a comment!"
-              ></input>
-              <button>Submit</button>
-            </span>
-          </form>
-          <button>Like ♡</button>
+          <input
+            onChange={(e) => setCurrSearch(e.target.value)}
+            type="text"
+            name="comment"
+            value=""
+            placeholder="Leave a comment!"
+          ></input>
+          <button>Submit</button>
         </span>
+        <button>Like ♡</button>
         <button>Remove from list</button>
       </div>
     </div>

@@ -8,6 +8,7 @@ function ParksList({
   setInBeenThere,
   inBucketList,
   inBeenThere,
+  currSearch,
 }) {
   console.log(parksList);
   const renderParks = parksList.map((park) => {
@@ -20,6 +21,7 @@ function ParksList({
         setInBeenThere={setInBeenThere}
         inBucketList={inBucketList}
         inBeenThere={inBeenThere}
+        currSearch={currSearch}
       />
     );
   });
