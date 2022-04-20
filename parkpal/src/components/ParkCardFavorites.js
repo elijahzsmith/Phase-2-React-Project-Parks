@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ParkCardFavorites({ park }) {
+function ParkCardFavorites({ park, currSearch, setCurrSearch }) {
   // make state for the value of comments
 
   //   const handleChange = (e) => {

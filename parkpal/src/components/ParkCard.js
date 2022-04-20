@@ -8,6 +8,7 @@ function ParkCard({
   setInBeenThere,
   inBucketList,
   inBeenThere,
+  currSearch,
 }) {
   const {
     id,
@@ -56,9 +57,9 @@ function ParkCard({
     someAction(park);
   };
 
-  const handleHistory = () => {
-    history.push("/details");
-  };
+  // const handleHistory = () => {
+  //   history.push("/details");
+  // };
 
   const handleBucketList = (park) => {
     console.log("Clicked Bucket List!", park);

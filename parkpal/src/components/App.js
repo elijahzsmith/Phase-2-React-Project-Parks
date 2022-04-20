@@ -10,6 +10,7 @@ function App() {
   const [parksList, setParksList] = useState([]);
   const [inBucketList, setInBucketList] = useState([]);
   const [inBeenThere, setInBeenThere] = useState([]);
+  const [currSearch, setCurrSearch] = useState("");
 
   useEffect(() => {
     fetch(
@@ -21,7 +22,17 @@ function App() {
       });
   }, []);
 
-  const addToFavorites = () => {};
+  console.log(currSearch);
+
+  const afterSearch = parksList.filter((park) => {
+    if (currSearch === "") {
+      return park;
+    } else if (park.name.toLowerCase().includes(currSearch.toLowerCase())) {
+      return park;
+    } else {
+      return null;
+    }
+  });
 
   return (
     <div className="App">
@@ -34,6 +45,9 @@ function App() {
             setInBeenThere={setInBeenThere}
             inBucketList={inBucketList}
             inBeenThere={inBeenThere}
+            currSearch={currSearch}
+            setCurrSearch={setCurrSearch}
+            afterSearch={afterSearch}
           />
         </Route>
         <Route exact path="/favorites">
@@ -41,6 +55,8 @@ function App() {
             parksList={parksList}
             inBucketList={inBucketList}
             inBeenThere={inBeenThere}
+            currSearch={currSearch}
+            setCurrSearch={setCurrSearch}
           />
         </Route>
         <Route exact path="/scavenger">

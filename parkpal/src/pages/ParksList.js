@@ -8,9 +8,11 @@ function ParksList({
   setInBeenThere,
   inBucketList,
   inBeenThere,
+  currSearch,
+  afterSearch,
 }) {
   console.log(parksList);
-  const renderParks = parksList.map((park) => {
+  const renderParks = afterSearch.map((park) => {
     return (
       <ParkCard
         key={park.id}
@@ -20,6 +22,7 @@ function ParksList({
         setInBeenThere={setInBeenThere}
         inBucketList={inBucketList}
         inBeenThere={inBeenThere}
+        currSearch={currSearch}
       />
     );
   });

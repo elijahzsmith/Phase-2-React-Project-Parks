@@ -8,16 +8,20 @@ function Home({
   setInBeenThere,
   inBucketList,
   inBeenThere,
+  currSearch,
+  setCurrSearch,
+  afterSearch,
 }) {
   const [showDetails, setShowDetails] = useState(false);
   const [parkDetails, setParkDetails] = useState({});
-  const [currSearch, setCurrSearch] = useState("");
+  //const [currSearch, setCurrSearch] = useState("");
 
   const viewDetails = (park) => {
     setShowDetails((showDetails) => !showDetails);
     setParkDetails(park);
   };
 
+  //console.log(currSearch);
   return (
     <div>
       Home Page
@@ -31,17 +35,15 @@ function Home({
               alt="other"
               className="background-img"
             ></img>
-            <form>
-              <span>
-                <input
-                  type="text"
-                  name="search"
-                  value={currSearch}
-                  placeholder="search..."
-                ></input>
-                <button>Search</button>
-              </span>
-            </form>
+            <span>
+              <input
+                type="text"
+                name="search"
+                value={currSearch}
+                placeholder="search..."
+                onChange={(e) => setCurrSearch(e.target.value)}
+              ></input>
+            </span>
           </div>
           <ParksList
             parksList={parksList}
@@ -50,6 +52,8 @@ function Home({
             setInBeenThere={setInBeenThere}
             inBucketList={inBucketList}
             inBeenThere={inBeenThere}
+            currSearch={currSearch}
+            afterSearch={afterSearch}
           />
         </div>
       )}
