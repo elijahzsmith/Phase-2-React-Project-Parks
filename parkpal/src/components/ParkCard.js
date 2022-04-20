@@ -60,7 +60,7 @@ function ParkCard({
       .then((res) => res.json())
       .then((data) => {
         setInBucketList([...inBucketList, data]);
-        alert("Added to Bucket List!");
+        //alert("Added to Bucket List!");
       });
   };
 
@@ -70,7 +70,7 @@ function ParkCard({
       .then((res) => res.json())
       .then((data) => {
         setInBeenThere([...inBeenThere, data]);
-        alert("Added to Your Parks!");
+        //alert("Added to Your Parks!");
       });
   };
 
