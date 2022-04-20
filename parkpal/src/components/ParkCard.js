@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function ParkCard({
   park,
@@ -34,6 +35,8 @@ function ParkCard({
     weatherInfo,
   } = park;
 
+  const history = useHistory();
+
   const newFavorite = {
     description: description,
     images: images,
@@ -51,6 +54,10 @@ function ParkCard({
 
   const handleClick = (park) => {
     someAction(park);
+  };
+
+  const handleHistory = () => {
+    history.push("/details");
   };
 
   const handleBucketList = (park) => {
