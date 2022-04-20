@@ -9,9 +9,10 @@ function ParksList({
   inBucketList,
   inBeenThere,
   currSearch,
+  afterSearch,
 }) {
   console.log(parksList);
-  const renderParks = parksList.map((park) => {
+  const renderParks = afterSearch.map((park) => {
     return (
       <ParkCard
         key={park.id}

@@ -22,6 +22,18 @@ function App() {
       });
   }, []);
 
+  console.log(currSearch);
+
+  const afterSearch = parksList.filter((park) => {
+    if (currSearch === "") {
+      return park;
+    } else if (park.name.toLowerCase().includes(currSearch.toLowerCase())) {
+      return park;
+    } else {
+      return null;
+    }
+  });
+
   return (
     <div className="App">
       <NavBar />
@@ -35,6 +47,7 @@ function App() {
             inBeenThere={inBeenThere}
             currSearch={currSearch}
             setCurrSearch={setCurrSearch}
+            afterSearch={afterSearch}
           />
         </Route>
         <Route exact path="/favorites">
