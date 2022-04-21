@@ -11,6 +11,8 @@ function Scavenger() {
   const [locationInput, setLocationInput] = useState("");
   const [photoInput, setPhotoInput] = useState("");
   const [storyInput, setStoryInput] = useState("");
+
+  console.log(catSelect, sightingInput, locationInput, photoInput, storyInput);
   return (
     <div>
       <h1>Scavenger Hunt</h1>
@@ -19,13 +21,18 @@ function Scavenger() {
       </h3>
       <div className="formcontainer">
         <form>
-          <select name="category" className="category">
+          <select
+            name="category"
+            className="category"
+            onChange={(e) => setCatSelect(e.target.value)}
+          >
             <option value="initial">Pick a category</option>
             <option value="animal">Animal</option>
             <option value="plant">Plant</option>
             <option value="location">Location</option>
           </select>
           <input
+            onChange={(e) => setSightingInput(e.target.value)}
             type="text"
             name="sighting"
             value={sightingInput}
@@ -33,6 +40,7 @@ function Scavenger() {
             required
           ></input>
           <input
+            onChange={(e) => setLocationInput(e.target.value)}
             type="text"
             name="location"
             value={locationInput}
@@ -40,12 +48,16 @@ function Scavenger() {
             required
           ></input>
           <input
+            onChange={(e) => setPhotoInput(e.target.value)}
             type="text"
             name="photo"
             value={photoInput}
             placeholder="Photo URL..."
           ></input>
-          <textarea placeholder="Tell your story..."></textarea>
+          <textarea
+            placeholder="Tell your story..."
+            onChange={(e) => setStoryInput(e.target.value)}
+          ></textarea>
           <button>Submit</button>
         </form>
       </div>

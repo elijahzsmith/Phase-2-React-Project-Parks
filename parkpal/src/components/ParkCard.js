@@ -60,7 +60,7 @@ function ParkCard({
 
   const handleBucketList = (park) => {
     console.log("Clicked Been Here!", park);
-    fetch(`http://localhost:3000/parks`, configObjPOST)
+    fetch(`http://localhost:3000/bucketlist`, configObjPOST)
       .then((res) => res.json())
       .then((data) => {
         setInBucketList([...inBucketList, data]);
@@ -70,7 +70,7 @@ function ParkCard({
 
   const handleBeenHere = (park) => {
     console.log("Clicked Been Here!", park);
-    fetch(`http://localhost:3000/parks`, configObjPOST)
+    fetch(`http://localhost:3000/beenthere`, configObjPOST)
       .then((res) => res.json())
       .then((data) => {
         setInBeenThere([...inBeenThere, data]);
