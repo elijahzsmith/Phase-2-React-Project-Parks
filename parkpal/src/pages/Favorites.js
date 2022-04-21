@@ -2,7 +2,14 @@ import React from "react";
 import BeenThere from "../components/BeenThere";
 import BucketList from "../components/BucketList";
 
-function Favorites({ inBucketList, inBeenThere, currSearch, setCurrSearch }) {
+function Favorites({
+  inBucketList,
+  inBeenThere,
+  currSearch,
+  setCurrSearch,
+  setInBucketList,
+  setInBeenThere,
+}) {
   const removeFromBucketList = (park) => {
     fetch(`http://localhost:3000/parks/${park.id}`, {
       method: "DELETE",
@@ -10,7 +17,20 @@ function Favorites({ inBucketList, inBeenThere, currSearch, setCurrSearch }) {
       .then((res) => res.json())
       .then((data) => {
         console.log("deleted", data);
-        // const afterDelete = inBucketList;
+        const afterDelete = inBucketList.filter((item) => item.id !== park.id);
+        setInBucketList(afterDelete);
+      });
+  };
+
+  const removeFromBeenThere = (park) => {
+    fetch(`http://localhost:3000/parks/${park.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("deleted", data);
+        const afterDelete = inBeenThere.filter((item) => item.id !== park.id);
+        setInBeenThere(afterDelete);
       });
   };
 
@@ -29,7 +49,7 @@ function Favorites({ inBucketList, inBeenThere, currSearch, setCurrSearch }) {
             inBeenThere={inBeenThere}
             currSearch={currSearch}
             setCurrSearch={setCurrSearch}
-            // handleRemove={removeFromList}
+            handleRemove={removeFromBeenThere}
           />
         </div>
       </div>
