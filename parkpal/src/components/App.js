@@ -27,7 +27,6 @@ function App() {
   }, []);
 
   const afterSearch = parksList.filter((park) => {
-    // console.log("park in app", park);
     if (currSearch === "") {
       return park;
     } else if (park.name.toLowerCase().includes(currSearch.toLowerCase())) {
@@ -41,7 +40,6 @@ function App() {
     setShowDetails((showDetails) => !showDetails);
     setParkDetails(park);
   };
-  ////////////////////////  ADD ROUTE TO DETAILS PAGE ------- USE USEHISTORY TO ROUTE TO DETAILS PAGE ON MORE INFO CLICK
 
   return (
     <div className="App">
