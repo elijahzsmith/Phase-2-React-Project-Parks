@@ -67,6 +67,8 @@ function App() {
             inBeenThere={inBeenThere}
             currSearch={currSearch}
             setCurrSearch={setCurrSearch}
+            setInBucketList={setInBucketList}
+            setInBeenThere={setInBeenThere}
           />
         </Route>
         <Route exact path="/scavenger">
