@@ -1,14 +1,14 @@
 import React from "react";
 import ParkCardFavorites from "./ParkCardFavorites";
 
-function BucketList({ inBucketList, currSearch, setCurrSearch }) {
+function BucketList({ inBucketList, currSearch, setCurrSearch, handleRemove }) {
   const renderBucketList = inBucketList.map((park) => {
-    console.log(park);
     return (
       <ParkCardFavorites
         park={park}
         currSearch={currSearch}
         setCurrSearch={setCurrSearch}
+        handleRemove={handleRemove}
       />
     );
   });

@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 
 function ParkCard({
   park,
@@ -35,7 +35,7 @@ function ParkCard({
     topics,
     weatherInfo,
   } = park;
-
+  //console.log("park in parkcard", park);
   const history = useHistory();
 
   const newFavorite = {
@@ -53,16 +53,12 @@ function ParkCard({
     body: JSON.stringify(newFavorite),
   };
 
-  const handleClick = (park) => {
+  const handleHistory = (park) => {
+    history.push("/details");
     someAction(park);
   };
 
-  // const handleHistory = () => {
-  //   history.push("/details");
-  // };
-
   const handleBucketList = (park) => {
-    console.log("Clicked Bucket List!", park);
     console.log("Clicked Been Here!", park);
     fetch(`http://localhost:3000/parks`, configObjPOST)
       .then((res) => res.json())
@@ -90,11 +86,14 @@ function ParkCard({
       <h4>
         <em>{states}, US</em>
       </h4>
-      <button onClick={() => handleClick(park)}>
-        <strong>
-          <em>More Info</em>
-        </strong>
-      </button>
+      {/* <button onClick={() => handleClick(park)}> */}
+      <NavLink exact to="/details">
+        <button onClick={() => handleHistory(park)}>
+          <strong>
+            <em>More Info</em>
+          </strong>
+        </button>
+      </NavLink>
       <p>{description}</p>
       <span>
         <button onClick={() => handleBucketList(park)}>

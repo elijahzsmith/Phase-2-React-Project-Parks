@@ -2,13 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const linkStyles = {
-  width: "100px",
+  width: "auto",
   padding: "12px",
   margin: "0 6px 6px",
   background: "#C56C39",
   textDecoration: "none",
   color: "white",
   radius: "25px",
+  borderRadius: "5px",
 };
 
 function NavBar() {
@@ -17,13 +18,14 @@ function NavBar() {
       <NavLink exact to="/">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/1/1d/US-NationalParkService-Logo.svg"
+          // src="https://www.downloadclipart.net/large/mountain-transparent-background.png"
           alt="logo"
           className="logo"
         ></img>
       </NavLink>
       <ul className="nav-links">
-        <NavLink exact to="/" style={linkStyles}>
-          <li>Parks</li>
+        <NavLink exact to="/parkslist" style={linkStyles}>
+          <li>Parks and Sites</li>
         </NavLink>
         <NavLink exact to="/favorites" style={linkStyles}>
           <li>Favorites</li>

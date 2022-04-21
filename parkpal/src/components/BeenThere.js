@@ -1,10 +1,10 @@
 import React from "react";
 import ParkCardFavorites from "./ParkCardFavorites";
 
-function BeenThere({ inBeenThere }) {
+function BeenThere({ inBeenThere, handleRemove }) {
   const renderBeenThere = inBeenThere.map((park) => {
     console.log(park);
-    return <ParkCardFavorites park={park} />;
+    return <ParkCardFavorites park={park} handleRemove={handleRemove} />;
   });
   const thisManyDown = inBeenThere.length;
 
