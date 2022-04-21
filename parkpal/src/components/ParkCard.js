@@ -10,32 +10,7 @@ function ParkCard({
   inBeenThere,
   currSearch,
 }) {
-  const {
-    id,
-    url,
-    fullName,
-    parkCode,
-    description,
-    activities,
-    addresses,
-    contacts,
-    designation,
-    directionsInfo,
-    directionsUrl,
-    entranceFees,
-    entrancePasses,
-    fees,
-    images,
-    latLong,
-    latitude,
-    longitude,
-    name,
-    operatingHours,
-    states,
-    topics,
-    weatherInfo,
-  } = park;
-  //console.log("park in parkcard", park);
+  const { description, designation, fees, images, name, states } = park;
   const history = useHistory();
 
   const newFavorite = {
@@ -64,7 +39,6 @@ function ParkCard({
       .then((res) => res.json())
       .then((data) => {
         setInBucketList([...inBucketList, data]);
-        //alert("Added to Bucket List!");
       });
   };
 
@@ -74,7 +48,6 @@ function ParkCard({
       .then((res) => res.json())
       .then((data) => {
         setInBeenThere([...inBeenThere, data]);
-        //alert("Added to Your Parks!");
       });
   };
 
@@ -86,7 +59,6 @@ function ParkCard({
       <h4>
         <em>{states}, US</em>
       </h4>
-      {/* <button onClick={() => handleClick(park)}> */}
       <NavLink exact to="/details">
         <button onClick={() => handleHistory(park)}>
           <strong>
@@ -106,5 +78,3 @@ function ParkCard({
 }
 
 export default ParkCard;
-
-// dont render a more button for parks that dont have the necessary data

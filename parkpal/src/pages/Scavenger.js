@@ -1,16 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import TravelLog from "../components/TravelLog";
 
 function Scavenger() {
-  // const [formData, setFormData] = useState({
-  //   sighting: "",
-  //   location: "",
-  //   photo: "",
-  // });
   const [catSelect, setCatSelect] = useState("Pick a category");
   const [sightingInput, setSightingInput] = useState("");
   const [locationInput, setLocationInput] = useState("");
   const [photoInput, setPhotoInput] = useState("");
   const [storyInput, setStoryInput] = useState("");
+
+  const [logList, setLogList] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/travellog`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setLogList(data);
+      });
+  }, []);
+
+  const newLog = {
+    catSelect,
+    sightingInput,
+    locationInput,
+    photoInput,
+    storyInput,
+  };
+
+  const configObjPOST = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(newLog),
+  };
+
+  const handleSubmit = () => {
+    fetch(`http://localhost:3000/travellog`, configObjPOST)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setLogList([...logList, data]);
+      });
+  };
 
   console.log(catSelect, sightingInput, locationInput, photoInput, storyInput);
   return (
@@ -19,8 +52,9 @@ function Scavenger() {
       <h3>
         Here to continue on the spirit created by the Junior Ranger Program
       </h3>
+
       <div className="formcontainer">
-        <form>
+        <form onSubmit={handleSubmit}>
           <select
             name="category"
             className="category"
@@ -61,7 +95,7 @@ function Scavenger() {
           <button>Submit</button>
         </form>
       </div>
-      <div>{/* render sightings here */}</div>
+      <TravelLog logList={logList} />
     </div>
   );
 }

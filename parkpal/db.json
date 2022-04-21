@@ -182,5 +182,30 @@
       "id": 2
     }
   ],
-  "travellog": []
+  "travellog": [
+    {
+      "catSelect": "Pick a category",
+      "sightingInput": "Frog",
+      "locationInput": "Creek",
+      "photoInput": "https://cdn.freebiesupply.com/logos/large/2x/frog-design-logo-png-transparent.png",
+      "storyInput": "Frog on a log in a bog",
+      "id": 1
+    },
+    {
+      "catSelect": "Pick a category",
+      "sightingInput": "Frog",
+      "locationInput": "Creek",
+      "photoInput": "https://cdn.freebiesupply.com/logos/large/2x/frog-design-logo-png-transparent.png",
+      "storyInput": "TESTING",
+      "id": 2
+    },
+    {
+      "catSelect": "Pick a category",
+      "sightingInput": "Frog",
+      "locationInput": "Creek",
+      "photoInput": "https://cdn.freebiesupply.com/logos/large/2x/frog-design-logo-png-transparent.png",
+      "storyInput": "Part 3",
+      "id": 3
+    }
+  ]
 }
