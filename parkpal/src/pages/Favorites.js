@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BeenThere from "../components/BeenThere";
 import BucketList from "../components/BucketList";
 
@@ -10,8 +10,24 @@ function Favorites({
   setInBucketList,
   setInBeenThere,
 }) {
+  useEffect(() => {
+    fetch(`http://localhost:3000/beenthere`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setInBeenThere(data);
+      });
+
+    fetch(`http://localhost:3000/bucketlist`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setInBucketList(data);
+      });
+  }, []);
+
   const removeFromBucketList = (park) => {
-    fetch(`http://localhost:3000/parks/${park.id}`, {
+    fetch(`http://localhost:3000/bucketlist/${park.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -23,7 +39,7 @@ function Favorites({
   };
 
   const removeFromBeenThere = (park) => {
-    fetch(`http://localhost:3000/parks/${park.id}`, {
+    fetch(`http://localhost:3000/beenthere/${park.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

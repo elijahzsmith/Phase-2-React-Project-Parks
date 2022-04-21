@@ -1,6 +1,8 @@
 import React from "react";
 
 function ParkCardFavorites({ park, currSearch, setCurrSearch, handleRemove }) {
+  console.log(park);
+
   return (
     <div>
       <div className="ui-card">
