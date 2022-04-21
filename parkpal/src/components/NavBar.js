@@ -28,10 +28,10 @@ function NavBar() {
           <li>Parks and Sites</li>
         </NavLink>
         <NavLink exact to="/favorites" style={linkStyles}>
-          <li>Favorites</li>
+          <li>Saved Parks</li>
         </NavLink>
         <NavLink exact to="/scavenger" style={linkStyles}>
-          <li>Scavenger</li>
+          <li>Scavenger Hunt</li>
         </NavLink>
       </ul>
     </nav>
