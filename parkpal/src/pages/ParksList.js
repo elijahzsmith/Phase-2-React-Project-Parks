@@ -11,7 +11,6 @@ function ParksList({
   currSearch,
   afterSearch,
 }) {
-  console.log(parksList);
   const renderParks = afterSearch.map((park) => {
     return (
       <ParkCard
@@ -27,7 +26,13 @@ function ParksList({
     );
   });
 
-  return <div className="wrapper">{renderParks}</div>;
+  return (
+    <div>
+      <h1>Our Great National Parks, Historic Sites and Landmarks</h1>
+      <h3></h3>
+      <div className="wrapper">{renderParks}</div>
+    </div>
+  );
 }
 
 export default ParksList;

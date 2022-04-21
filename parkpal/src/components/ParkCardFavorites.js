@@ -1,33 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-function ParkCardFavorites({ park, currSearch, setCurrSearch }) {
-  // make state for the value of comments
-
-  //   const handleChange = (e) => {
-  //     console.log(e.target.value);
-  //     setCurrSearch(e.target.value);
-  //   };
-
+function ParkCardFavorites({ park, currSearch, setCurrSearch, handleRemove }) {
   return (
     <div>
       <div className="ui-card">
         <img src={park.images[0].url} alt="ParkImg" className="cardimg" />
         <h3>{park.name}</h3>
-        <h4>{park.designation}</h4>
         <h4>
-          <em>states, US</em>
+          <em>{park.states}, US</em>
         </h4>
-        <button>
-          <strong>
-            <em>More Info</em>
-          </strong>
-        </button>
         <p>{park.description}</p>
         <span>
           <form>
             <span>
               <input
-                // onChange={(e) => handleChange(e)}
                 type="text"
                 name="comment"
                 value=""
@@ -38,7 +24,7 @@ function ParkCardFavorites({ park, currSearch, setCurrSearch }) {
           </form>
           <button>Like ♡</button>
         </span>
-        <button>Remove from list</button>
+        <button onClick={() => handleRemove(park)}>Remove from list</button>
       </div>
     </div>
   );

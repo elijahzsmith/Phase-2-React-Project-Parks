@@ -1,7 +1,7 @@
 import React from "react";
 
 function Details({ park }) {
-  //console.log(park);
+  console.log("park in DETAILS", park.images);
 
   const renderAllImages = park.images.map((image) => {
     return (
@@ -15,8 +15,6 @@ function Details({ park }) {
   const renderActivities = park.activities.map((activity) => {
     return <li key={activity.name}>{activity.name}</li>;
   });
-
-  //const render
 
   return (
     <div>
@@ -39,13 +37,13 @@ function Details({ park }) {
         <h5>{park.entranceFees[0].description}</h5>
         <h4>{park.entranceFees[0].title}</h4>
 
-        {park.entrancePasses.length === 0 ? null : (
+        {/* {park.entrancePasses.length === 0 ? null : (
           <div>
             <h3>Entrance Passes</h3>
             <h5>{park.entrancePasses[0]}</h5>
             <h6>{park.entrancePasses[0]}</h6>
           </div>
-        )}
+        )} */}
         <div className="details-photo-wrapper">{renderAllImages}</div>
       </div>
     </div>
