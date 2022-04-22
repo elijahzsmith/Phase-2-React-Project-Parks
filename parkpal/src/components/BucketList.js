@@ -16,6 +16,7 @@ function BucketList({
   const likedText = liked ? "Liked ♥" : "Like ♡";
   const [likeText, setLikeText] = useState(likedText);
   const handleLikeBucketList = (park) => {
+    console.log(park);
     setLiked((liked) => !liked);
 
     const newLike = { liked: liked };
@@ -33,14 +34,21 @@ function BucketList({
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        const afterLike = inBucketList.map((item) =>
-          item.id !== park.id ? park : item
+        const afterLike = inBucketList.find((item) =>
+          item.id === park.id ? likedText : null
         );
-        setInBucketList(afterLike);
-        // const likedText = liked ? "Liked ♥" : "Like ♡";
-        setLikeText(liked ? "Liked ♥" : "Like ♡");
+        const afterFind = inBucketList.map((item) => {
+          return item.id === afterLike.id ? afterLike : item;
+        });
+        console.log(afterLike);
+        console.log(afterFind);
+        const likebuttontext = inBucketList.find((item) =>
+          item.id === park.id ? "Liked ♥" : "Like ♡"
+        );
+        console.log(likebuttontext);
+        setLikeText(likedText);
+        //setInBucketList(afterLike);
       });
-    //return liked ? "Liked ♥" : "Like ♡";
   };
   const renderBucketList = inBucketList.map((park) => {
     return (

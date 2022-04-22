@@ -26,7 +26,9 @@ function NewFavoriteCard({
         <span>
           <button onClick={() => handleMove(park)}>Move to Been There</button>
           <button onClick={() => handleRemove(park)}>Remove</button>
-          <button onClick={() => handleClick(park)}>{likedText}</button>
+          <button onClick={() => handleClick(park)}>
+            {liked ? "Liked ♥" : "Like ♡"}
+          </button>
         </span>
       </div>
     </div>

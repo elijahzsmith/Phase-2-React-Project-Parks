@@ -7,7 +7,7 @@ function TravelLogItem({ log, handleClick, logList }) {
     log;
   return (
     <div className="ui-card">
-      <h5>Travel Log Entry {logList.indexOf(log) + 1}</h5>
+      <h5>Travel Log: Entry #{logList.indexOf(log) + 1}</h5>
       <h2>{catSelect}</h2>
       <h3>{sightingInput}</h3>
       <h4>{locationInput}</h4>
