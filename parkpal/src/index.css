@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(bluegrey);
 }
 
 code {
@@ -104,6 +105,13 @@ nav {
   left: 45%;
 }
 
+.centerish-photo img {
+  position: absolute;
+  top: -20%;
+  left: 33%;
+  height: 35px;
+}
+
 .whitetext {
   color: white;
 }
@@ -169,14 +177,14 @@ span button:hover {
   text-align: center;
   cursor: pointer;
   outline: none;
-  background-color: #335d8e;
+  background-color: #c56c39;
   border: none;
   border-radius: 105px;
   box-shadow: 2 8px #999;
 }
 
 div.ui-card:hover {
-  background-color: gold;
+  background-color: #f8b195;
   box-shadow: 10;
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);

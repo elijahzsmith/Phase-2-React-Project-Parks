@@ -40,14 +40,6 @@ function Details({ park }) {
         <h4>{park.entranceFees[0].cost}</h4>
         <h5>{park.entranceFees[0].description}</h5>
         <h4>{park.entranceFees[0].title}</h4>
-
-        {/* {park.entrancePasses.length === 0 ? null : (
-          <div>
-            <h3>Entrance Passes</h3>
-            <h5>{park.entrancePasses[0]}</h5>
-            <h6>{park.entrancePasses[0]}</h6>
-          </div>
-        )} */}
         <div className="details-photo-wrapper">{renderAllImages}</div>
       </div>
     </div>
