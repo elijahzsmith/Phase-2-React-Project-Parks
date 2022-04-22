@@ -18,7 +18,7 @@ code {
   justify-content: space-around;
   max-width: 400px;
   border: 1px solid rgb(0, 0, 0);
-  background: rgb(255, 255, 255);
+  background: #d3bf9f;
   border-radius: 5px;
 }
 
@@ -34,6 +34,11 @@ h3 {
   text-align: center;
 }
 
+.moreinfobtn {
+  margin-left: 120px;
+  width: 160px;
+}
+
 .scavengerpage {
   display: flex;
   flex-direction: column;
@@ -45,13 +50,6 @@ h3 {
   max-width: 400px;
   height: 300px;
 }
-
-/* .ui-card ui.card:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  transition: 1s ease;
-} */
 
 .logpage {
   margin-left: 2%;
@@ -95,9 +93,30 @@ nav {
   width: 100%;
 }
 
+.homecontainer {
+  position: relative;
+  text-align: center;
+}
+
+.centerish {
+  position: absolute;
+  top: 70%;
+  left: 45%;
+}
+
+.whitetext {
+  color: white;
+}
+
+.home-input {
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+}
+
 .wrapper {
-  margin-left: 2%;
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   padding-top: 30px;
@@ -128,7 +147,7 @@ nav {
 }
 
 span button {
-  /* font-size: ; */
+  color: #fff;
   text-align: center;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -136,14 +155,13 @@ span button {
   text-align: center;
   cursor: pointer;
   outline: none;
-  background-color: #fcb00d;
+  background-color: #495d4e;
   border: none;
   border-radius: 105px;
   box-shadow: 0 3px #999;
 }
 
 span button:hover {
-  /* font-size: ; */
   text-align: center;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -151,7 +169,7 @@ span button:hover {
   text-align: center;
   cursor: pointer;
   outline: none;
-  background-color: #fcb00d;
+  background-color: #335d8e;
   border: none;
   border-radius: 105px;
   box-shadow: 2 8px #999;
@@ -160,9 +178,9 @@ span button:hover {
 div.ui-card:hover {
   background-color: gold;
   box-shadow: 10;
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
   transition: 1s ease;
 }
 
@@ -187,8 +205,6 @@ form {
   justify-content: space-between;
   align-items: center;
   padding-right: 50%;
-  /* border-bottom: 1px solid black; */
-  /* box-shadow: 10px 10px gray; */
 }
 
 .favoriteslistcontainer {
@@ -199,15 +215,13 @@ form {
 }
 
 ul.nav-links li {
-  /* background-color:; */
   color: black;
   text-align: center;
 }
 
 ul.nav-links {
-  /* font-size: ; */
   text-align: center;
-  margin-left: 30px;
+  margin-right: 350px;
   margin-bottom: 10px;
   font-size: 18px;
   text-align: center;
@@ -220,7 +234,6 @@ ul.nav-links {
 }
 
 ul.nav-links:hover {
-  /* font-size: ; */
   text-align: center;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -246,7 +259,6 @@ h4 {
 }
 
 div.wrapper {
-  /* background-color: lightgreen; */
   background: rgb(73, 79, 82);
 }
 
@@ -276,78 +288,3 @@ form input:hover {
   font-size: 18px;
   box-shadow: 3px #999;
 }
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.ui-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 400px;
-  border: 1px solid black;
-}
-
-.cardimg {
-  max-width: 400px;
-  height: 300px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-width: 10vh;
-  background: rgb(73, 79, 82);
-  color: white;
-}
-
-.nav-links {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
-
-.logo {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  height: 90px;
-  width: auto;
-}
-
-.background-img {
-  height: auto;
-  width: 100%;
-}
-
-.wrapper {
-  margin-left: 10%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.detailimg {
-  max-width: 400px;
-  height: 300px;
-}
-
-.details-photo-wrapper {
-  margin-left: 10%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-} */

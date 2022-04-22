@@ -64,7 +64,7 @@ function ParkCard({
         <em>{states}, US</em>
       </h4>
       <NavLink exact to="/details">
-        <button onClick={() => handleHistory(park)}>
+        <button onClick={() => handleHistory(park)} className="moreinfobtn">
           <strong>
             <em>More Info</em>
           </strong>

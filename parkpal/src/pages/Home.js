@@ -23,20 +23,23 @@ function Home({
     <div>
       <div className="homecontainer">
         <img
-          // src="https://images.fineartamerica.com/images-medium-large-5/arches-national-park-panorama-dave-mills.jpg"
           src={`https://www.pngkit.com/png/full/255-2558378_mile-high-continuing-care-rocky-mountains.png`}
           alt="other"
           className="background-img"
         ></img>
-        <span>
+
+        <div className="centerish">
+          <h1 className="whitetext">ParkPal</h1>
+          <h4 className="whitetext">Find your dream location</h4>
           <input
             type="text"
             name="search"
             value={currSearch}
             placeholder="search..."
+            className="home-input"
             onChange={(e) => setCurrSearch(e.target.value)}
           ></input>
-        </span>
+        </div>
       </div>
       <ParksList
         parksList={parksList}
@@ -50,10 +53,6 @@ function Home({
         liked={liked}
         setLiked={setLiked}
       />
-      {/* {showDetails ? (
-        <Details parksList={parksList} park={parkDetails} />
-      ) : null} */}
-      {/* <Details parksList={parksList} park={parkDetails} /> */}
     </div>
   );
 }

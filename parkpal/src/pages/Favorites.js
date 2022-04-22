@@ -12,9 +12,9 @@ function Favorites({
   liked,
   setLiked,
 }) {
-  const receiveData = (data) => {
-    console.log(data);
-  };
+  // const receiveData = (data) => {
+  //   console.log(data);
+  // };
 
   useEffect(() => {
     fetch(`http://localhost:3000/beenthere`)
@@ -56,10 +56,6 @@ function Favorites({
       });
   };
 
-  // const receiveData = (data) => {
-  //   console.log(data);
-  // };
-
   return (
     <div>
       <h1>Favorites</h1>
@@ -74,7 +70,7 @@ function Favorites({
               handleRemove={removeFromBucketList}
               liked={liked}
               setLiked={setLiked}
-              sendData={receiveData}
+              //sendData={receiveData}
             />
           </div>
           <div className="beentherecontainer">
