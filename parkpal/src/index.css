@@ -22,6 +22,33 @@ code {
   background: #d3bf9f;
   border-radius: 5px;
 }
+/* heieiugreiugh
+grgege
+etht
+h
+eth
+eth
+eth
+eth
+h */
+.ui-card-favorites {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 400px;
+  border: 1px solid rgb(0, 0, 0);
+  background: #d3bf9f;
+  border-radius: 5px;
+}
+
+div.ui-card-favorites:hover {
+  background-color: #bde8c1;
+  box-shadow: 10;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  transition: 1s ease;
+}
 
 .ui-card p {
   color: rgb(0, 0, 0);
@@ -45,6 +72,14 @@ h3 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.logscontainer {
+  margin-left: 2%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-top: 30px;
 }
 
 .cardimg {

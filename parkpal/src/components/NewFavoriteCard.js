@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ParkCardFavorites({
+function NewFavoriteCard({
   park,
   currSearch,
   setCurrSearch,
@@ -12,10 +12,11 @@ function ParkCardFavorites({
   setInBeenThere,
   handleClick,
   likedText,
+  handleMove,
 }) {
   return (
     <div>
-      <div className="ui-card-favorites">
+      <div className="ui-card">
         <img src={park.images[0].url} alt="ParkImg" className="cardimg" />
         <h3>{park.name}</h3>
         <h4>
@@ -23,6 +24,7 @@ function ParkCardFavorites({
         </h4>
         <p>{park.description}</p>
         <span>
+          <button onClick={() => handleMove(park)}>Move to Been There</button>
           <button onClick={() => handleRemove(park)}>Remove</button>
           <button onClick={() => handleClick(park)}>{likedText}</button>
         </span>
@@ -31,4 +33,4 @@ function ParkCardFavorites({
   );
 }
 
-export default ParkCardFavorites;
+export default NewFavoriteCard;

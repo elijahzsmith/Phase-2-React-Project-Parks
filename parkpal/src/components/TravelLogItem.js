@@ -1,13 +1,13 @@
 import React from "react";
 
-function TravelLogItem({ log, handleClick }) {
+function TravelLogItem({ log, handleClick, logList }) {
   console.log(log);
 
   const { catSelect, sightingInput, locationInput, photoInput, storyInput } =
     log;
   return (
     <div className="ui-card">
-      TravelLogItem
+      <h5>Travel Log Entry {logList.indexOf(log) + 1}</h5>
       <h2>{catSelect}</h2>
       <h3>{sightingInput}</h3>
       <h4>{locationInput}</h4>

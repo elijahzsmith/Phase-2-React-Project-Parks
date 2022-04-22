@@ -33,7 +33,6 @@ function ParksList({
   return (
     <div>
       <h1>Our Great National Parks, Historic Sites and Landmarks</h1>
-      <h3></h3>
       <div className="wrapper">{renderParks}</div>
     </div>
   );

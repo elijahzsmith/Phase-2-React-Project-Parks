@@ -3,9 +3,16 @@ import TravelLogItem from "./TravelLogItem";
 
 function TravelLog({ logList, handleClick }) {
   const renderLogs = logList.map((log) => {
-    return <TravelLogItem key={log.id} log={log} handleClick={handleClick} />;
+    return (
+      <TravelLogItem
+        key={log.id}
+        log={log}
+        handleClick={handleClick}
+        logList={logList}
+      />
+    );
   });
-  return <div>Logs{renderLogs}</div>;
+  return <div className="logscontainer">{renderLogs}</div>;
 }
 
 export default TravelLog;
