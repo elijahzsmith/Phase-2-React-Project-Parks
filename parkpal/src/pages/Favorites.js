@@ -12,10 +12,6 @@ function Favorites({
   liked,
   setLiked,
 }) {
-  // const receiveData = (data) => {
-  //   console.log(data);
-  // };
-
   useEffect(() => {
     fetch(`http://localhost:3000/beenthere`)
       .then((res) => res.json())

@@ -1,6 +1,6 @@
 import React from "react";
 
-function TravelLogItem({ log }) {
+function TravelLogItem({ log, handleClick }) {
   console.log(log);
 
   const { catSelect, sightingInput, locationInput, photoInput, storyInput } =
@@ -13,6 +13,7 @@ function TravelLogItem({ log }) {
       <h4>{locationInput}</h4>
       <img src={photoInput} alt="pic" />
       <p>{storyInput}</p>
+      <button onClick={() => handleClick(log)}>Delete Log</button>
     </div>
   );
 }

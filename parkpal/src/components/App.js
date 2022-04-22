@@ -23,7 +23,6 @@ function App() {
     )
       .then((res) => res.json())
       .then((parksData) => {
-        //experimenting with shuffling cards
         console.log(parksData);
         const shuffleArray = parksData.data.sort(() => Math.random() - 0.5);
         console.log(shuffleArray);

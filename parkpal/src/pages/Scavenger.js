@@ -45,6 +45,18 @@ function Scavenger() {
       });
   };
 
+  const removeFromTravelLog = (log) => {
+    fetch(`http://localhost:3000/travellog/${log.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("deleted", data);
+        const afterDelete = logList.filter((item) => item.id !== log.id);
+        setLogList(afterDelete);
+      });
+  };
+
   console.log(catSelect, sightingInput, locationInput, photoInput, storyInput);
   return (
     <div className="scavengerpage">
@@ -100,7 +112,7 @@ function Scavenger() {
         </form>
       </div>
       <div className="logpage">
-        <TravelLog logList={logList} />
+        <TravelLog logList={logList} handleClick={removeFromTravelLog} />
       </div>
     </div>
   );
