@@ -24,7 +24,9 @@ function ParkCardFavorites({
         <p>{park.description}</p>
         <span>
           <button onClick={() => handleRemove(park)}>Remove</button>
-          <button onClick={() => handleClick(park)}>{likedText}</button>
+          <button onClick={() => handleClick(park)}>
+            {liked ? "Liked ♥" : "Like ♡"}
+          </button>
         </span>
       </div>
     </div>

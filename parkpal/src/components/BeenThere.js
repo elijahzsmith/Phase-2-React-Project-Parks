@@ -32,8 +32,9 @@ function BeenThere({
         const afterLike = inBeenThere.map((item) =>
           item.id === park.id ? park : item
         );
-        setInBeenThere(afterLike);
+
         setLikeText(likedText);
+        setInBeenThere(afterLike);
       });
   };
   const renderBeenThere = inBeenThere.map((park) => {

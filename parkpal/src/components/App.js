@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `https://developer.nps.gov/api/v1/parks?parkCode=&limit=60&start=10&api_key=${process.env.REACT_APP_API_KEY}`
+      `https://developer.nps.gov/api/v1/parks?parkCode=&limit=100&start=5&api_key=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
       .then((parksData) => {
