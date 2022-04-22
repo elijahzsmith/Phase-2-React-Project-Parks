@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import ParkCardFavorites from "./ParkCardFavorites";
 
-function BeenThere({ inBeenThere, handleRemove }) {
+function BeenThere({
+  inBeenThere,
+  setInBeenThere,
+  handleRemove,
+  liked,
+  setLiked,
+}) {
+  const likedText = liked ? "Liked ♥" : "Like ♡";
+  const [likeText, setLikeText] = useState(likedText);
+
+  const handleLikeBeenThere = (park) => {
+    setLiked((liked) => !liked);
+
+    const newLike = { liked: liked };
+
+    const configObjPATCH = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(newLike),
+    };
+
+    fetch(`http://localhost:3000/beenthere/${park.id}`, configObjPATCH)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const afterLike = inBeenThere.map((item) =>
+          item.id === park.id ? park : item
+        );
+        setInBeenThere(afterLike);
+        setLikeText(likedText);
+      });
+  };
   const renderBeenThere = inBeenThere.map((park) => {
-    console.log(park);
-    return <ParkCardFavorites park={park} handleRemove={handleRemove} />;
+    return (
+      <ParkCardFavorites
+        park={park}
+        handleRemove={handleRemove}
+        liked={liked}
+        setLiked={setLiked}
+        setInBeenThere={setInBeenThere}
+        handleClick={handleLikeBeenThere}
+        likedText={likeText}
+      />
+    );
   });
   const thisManyDown = inBeenThere.length;
 

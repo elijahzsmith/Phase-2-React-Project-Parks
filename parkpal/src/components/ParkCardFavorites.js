@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ParkCardFavorites({ park, currSearch, setCurrSearch, handleRemove }) {
-  console.log(park);
-
+function ParkCardFavorites({
+  park,
+  currSearch,
+  setCurrSearch,
+  handleRemove,
+  liked,
+  setLiked,
+  inBucketList,
+  setInBucketList,
+  setInBeenThere,
+  handleClick,
+  likedText,
+}) {
   return (
     <div>
       <div className="ui-card">
@@ -13,20 +23,9 @@ function ParkCardFavorites({ park, currSearch, setCurrSearch, handleRemove }) {
         </h4>
         <p>{park.description}</p>
         <span>
-          <form>
-            <span>
-              <input
-                type="text"
-                name="comment"
-                value=""
-                placeholder="Leave a comment!"
-              ></input>
-              <button>Submit</button>
-            </span>
-          </form>
-          <button>Like ♡</button>
+          <button onClick={() => handleRemove(park)}>Remove</button>
+          <button onClick={() => handleClick(park)}>{likedText}</button>
         </span>
-        <button onClick={() => handleRemove(park)}>Remove from list</button>
       </div>
     </div>
   );

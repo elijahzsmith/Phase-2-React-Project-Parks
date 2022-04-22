@@ -9,7 +9,13 @@ function Favorites({
   setCurrSearch,
   setInBucketList,
   setInBeenThere,
+  liked,
+  setLiked,
 }) {
+  const receiveData = (data) => {
+    console.log(data);
+  };
+
   useEffect(() => {
     fetch(`http://localhost:3000/beenthere`)
       .then((res) => res.json())
@@ -50,23 +56,38 @@ function Favorites({
       });
   };
 
+  // const receiveData = (data) => {
+  //   console.log(data);
+  // };
+
   return (
     <div>
       <h1>Favorites</h1>
       <div>
-        <div>
-          <BucketList
-            inBucketList={inBucketList}
-            currSearch={currSearch}
-            setCurrSearch={setCurrSearch}
-            handleRemove={removeFromBucketList}
-          />
-          <BeenThere
-            inBeenThere={inBeenThere}
-            currSearch={currSearch}
-            setCurrSearch={setCurrSearch}
-            handleRemove={removeFromBeenThere}
-          />
+        <div className="favoriteslistcontainer">
+          <div className="bucketlistcontainer">
+            <BucketList
+              inBucketList={inBucketList}
+              setInBucketList={setInBucketList}
+              currSearch={currSearch}
+              setCurrSearch={setCurrSearch}
+              handleRemove={removeFromBucketList}
+              liked={liked}
+              setLiked={setLiked}
+              sendData={receiveData}
+            />
+          </div>
+          <div className="beentherecontainer">
+            <BeenThere
+              inBeenThere={inBeenThere}
+              setInBeenThere={setInBeenThere}
+              currSearch={currSearch}
+              setCurrSearch={setCurrSearch}
+              handleRemove={removeFromBeenThere}
+              liked={liked}
+              setLiked={setLiked}
+            />
+          </div>
         </div>
       </div>
     </div>

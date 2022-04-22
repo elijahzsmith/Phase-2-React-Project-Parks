@@ -20,7 +20,11 @@ function Details({ park }) {
     <div>
       Details
       <h1>{park.fullName}</h1>
-      <img src={park.images[0].url} alt="detailedpic"></img>
+      <img
+        src={park.images[0].url}
+        alt="detailedpic"
+        className="maindetailimg"
+      ></img>
       <h2>{park.name}</h2>
       <h4>{park.description}</h4>
       <div>

@@ -12,6 +12,8 @@ function Home({
   setCurrSearch,
   afterSearch,
   viewDetails,
+  liked,
+  setLiked,
   parkDetails,
   setParkDetails,
   showDetails,
@@ -19,7 +21,7 @@ function Home({
 }) {
   return (
     <div>
-      <div>
+      <div className="homecontainer">
         <img
           // src="https://images.fineartamerica.com/images-medium-large-5/arches-national-park-panorama-dave-mills.jpg"
           src={`https://www.pngkit.com/png/full/255-2558378_mile-high-continuing-care-rocky-mountains.png`}
@@ -45,6 +47,8 @@ function Home({
         inBeenThere={inBeenThere}
         currSearch={currSearch}
         afterSearch={afterSearch}
+        liked={liked}
+        setLiked={setLiked}
       />
       {/* {showDetails ? (
         <Details parksList={parksList} park={parkDetails} />

@@ -15,6 +15,7 @@ function App() {
   const [currSearch, setCurrSearch] = useState("");
   const [parkDetails, setParkDetails] = useState({});
   const [showDetails, setShowDetails] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -24,7 +25,7 @@ function App() {
       .then((parksData) => {
         setParksList(parksData.data);
       });
-  }, []);
+  }, []); // removed liked dependency
 
   const afterSearch = parksList.filter((park) => {
     if (currSearch === "") {
@@ -56,6 +57,8 @@ function App() {
             setCurrSearch={setCurrSearch}
             afterSearch={afterSearch}
             viewDetails={viewDetails}
+            liked={liked}
+            setLiked={setLiked}
           />
         </Route>
         <Route exact path="/favorites">
@@ -67,6 +70,8 @@ function App() {
             setCurrSearch={setCurrSearch}
             setInBucketList={setInBucketList}
             setInBeenThere={setInBeenThere}
+            liked={liked}
+            setLiked={setLiked}
           />
         </Route>
         <Route exact path="/scavenger">
