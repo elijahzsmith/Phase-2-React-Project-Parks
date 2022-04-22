@@ -52,6 +52,42 @@ function Favorites({
       });
   };
 
+  const handleMove = (park) => {
+    const newFavorite = {
+      description: park.description,
+      images: park.images,
+      name: park.name,
+      states: park.states,
+      liked: false,
+    };
+
+    const configObjPOST = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFavorite),
+    };
+
+    console.log("Clicked Been Here!", park);
+    fetch(`http://localhost:3000/beenthere`, configObjPOST)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setInBeenThere([...inBeenThere, data]);
+      });
+
+    fetch(`http://localhost:3000/bucketlist/${park.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("deleted", data);
+        const afterDelete = inBucketList.filter((item) => item.id !== park.id);
+        setInBucketList(afterDelete);
+      });
+  };
+
   return (
     <div>
       <h1>Favorites</h1>
@@ -66,6 +102,7 @@ function Favorites({
               handleRemove={removeFromBucketList}
               liked={liked}
               setLiked={setLiked}
+              handleMove={handleMove}
               //sendData={receiveData}
             />
           </div>

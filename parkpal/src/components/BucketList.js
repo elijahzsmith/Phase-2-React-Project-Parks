@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import ParkCardFavorites from "./ParkCardFavorites";
+//import ParkCardFavorites from "./ParkCardFavorites";
+import NewFavoriteCard from "./NewFavoriteCard";
 
 function BucketList({
   inBucketList,
@@ -10,6 +11,7 @@ function BucketList({
   liked,
   setLiked,
   sendData,
+  handleMove,
 }) {
   const likedText = liked ? "Liked ♥" : "Like ♡";
   const [likeText, setLikeText] = useState(likedText);
@@ -42,7 +44,7 @@ function BucketList({
   };
   const renderBucketList = inBucketList.map((park) => {
     return (
-      <ParkCardFavorites
+      <NewFavoriteCard
         park={park}
         currSearch={currSearch}
         setCurrSearch={setCurrSearch}
@@ -53,6 +55,7 @@ function BucketList({
         setInBucketList={setInBucketList}
         handleClick={handleLikeBucketList}
         likedText={likeText}
+        handleMove={handleMove}
       />
     );
   });
