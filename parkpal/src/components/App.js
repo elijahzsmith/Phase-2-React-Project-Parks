@@ -19,11 +19,15 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `https://developer.nps.gov/api/v1/parks?parkCode=&limit=600&start=10&api_key=${process.env.REACT_APP_API_KEY}`
+      `https://developer.nps.gov/api/v1/parks?parkCode=&limit=60&start=10&api_key=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
       .then((parksData) => {
-        setParksList(parksData.data);
+        //experimenting with shuffling cards
+        console.log(parksData);
+        const shuffleArray = parksData.data.sort(() => Math.random() - 0.5);
+        console.log(shuffleArray);
+        setParksList(shuffleArray);
       });
   }, []); // removed liked dependency
 
@@ -61,7 +65,7 @@ function App() {
             setLiked={setLiked}
           />
         </Route>
-        <Route exact path="/favorites">
+        <Route exact path="/savedparks">
           <Favorites
             parksList={parksList}
             inBucketList={inBucketList}
@@ -74,7 +78,7 @@ function App() {
             setLiked={setLiked}
           />
         </Route>
-        <Route exact path="/scavenger">
+        <Route exact path="/travellog">
           <Scavenger parksList={parksList} />
         </Route>
         <Route exact path="/details">

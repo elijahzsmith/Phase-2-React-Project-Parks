@@ -17,6 +17,7 @@ function NavBar() {
     <nav>
       <NavLink exact to="/">
         <img
+          // src="https://www.kindpng.com/picc/m/731-7310086_white-buffalo-png-download-transparent-png.png"
           src="https://upload.wikimedia.org/wikipedia/commons/1/1d/US-NationalParkService-Logo.svg"
           // src="https://www.downloadclipart.net/large/mountain-transparent-background.png"
           alt="logo"
@@ -27,11 +28,11 @@ function NavBar() {
         <NavLink exact to="/parkslist" style={linkStyles}>
           <li>Parks and Sites</li>
         </NavLink>
-        <NavLink exact to="/favorites" style={linkStyles}>
+        <NavLink exact to="/savedparks" style={linkStyles}>
           <li>Saved Parks</li>
         </NavLink>
-        <NavLink exact to="/scavenger" style={linkStyles}>
-          <li>Scavenger Hunt</li>
+        <NavLink exact to="/travellog" style={linkStyles}>
+          <li>Travel Log</li>
         </NavLink>
       </ul>
     </nav>

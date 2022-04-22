@@ -29,6 +29,12 @@ function Home({
         ></img>
 
         <div className="centerish">
+          <div className="centerish-photo">
+            <img
+              src="https://www.downloadclipart.net/large/mountain-transparent-background.png"
+              alt="mtn"
+            ></img>
+          </div>
           <h1 className="whitetext">ParkPal</h1>
           <h4 className="whitetext">Find your dream location</h4>
           <input
