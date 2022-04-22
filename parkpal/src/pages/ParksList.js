@@ -10,6 +10,8 @@ function ParksList({
   inBeenThere,
   currSearch,
   afterSearch,
+  liked,
+  setLiked,
 }) {
   const renderParks = afterSearch.map((park) => {
     return (
@@ -22,6 +24,8 @@ function ParksList({
         inBucketList={inBucketList}
         inBeenThere={inBeenThere}
         currSearch={currSearch}
+        liked={liked}
+        setLiked={setLiked}
       />
     );
   });

@@ -47,14 +47,18 @@ function Scavenger() {
 
   console.log(catSelect, sightingInput, locationInput, photoInput, storyInput);
   return (
-    <div>
-      <h1>Scavenger Hunt</h1>
-      <h3>
-        Here to continue on the spirit created by the Junior Ranger Program
-      </h3>
-
-      <div className="formcontainer">
+    <div className="scavengerpage">
+      <div className="loghead">
+        <img
+          src="https://www.downloadclipart.net/large/mountain-transparent-background.png"
+          alt="mtn"
+        ></img>
+        <h3>Here to Inspire and Remember</h3>
+        <h1>Travel Log</h1>
+      </div>
+      <div>
         <form onSubmit={handleSubmit}>
+          <h4>Enter New Log:</h4>
           <select
             name="category"
             className="category"
@@ -95,7 +99,9 @@ function Scavenger() {
           <button>Submit</button>
         </form>
       </div>
-      <TravelLog logList={logList} />
+      <div className="logpage">
+        <TravelLog logList={logList} />
+      </div>
     </div>
   );
 }

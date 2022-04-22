@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 
 function ParkCard({
@@ -9,7 +9,10 @@ function ParkCard({
   inBucketList,
   inBeenThere,
   currSearch,
+  liked,
+  setLiked,
 }) {
+  const [showDesc, setShowDesc] = useState(true);
   const { description, designation, fees, images, name, states } = park;
   const history = useHistory();
 
@@ -18,6 +21,7 @@ function ParkCard({
     images: images,
     name: name,
     states: states,
+    liked: false,
   };
 
   const configObjPOST = {
@@ -66,7 +70,23 @@ function ParkCard({
           </strong>
         </button>
       </NavLink>
-      <p>{description}</p>
+      <button onClick={() => setShowDesc((showDesc) => !showDesc)}>
+        {showDesc ? (
+          <em>Hide Description</em>
+        ) : (
+          <strong>
+            <em>Show Description</em>
+          </strong>
+        )}
+      </button>
+      {showDesc ? (
+        <p>{description}</p>
+      ) : (
+        <img
+          src="https://www.downloadclipart.net/large/mountain-transparent-background.png"
+          alt="hiddendesc"
+        ></img>
+      )}
       <span>
         <button onClick={() => handleBucketList(park)}>
           Add To Bucket List
