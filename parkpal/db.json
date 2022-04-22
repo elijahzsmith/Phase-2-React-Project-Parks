@@ -496,11 +496,11 @@
       "id": 2
     },
     {
-      "catSelect": "Pick a category",
+      "catSelect": "animal",
       "sightingInput": "bear",
       "locationInput": "yellowstone",
       "photoInput": "https://www.kindpng.com/picc/m/49-498916_bear-free-png-image-grizzly-bear-transparent-background.png",
-      "storyInput": "Freshly hibernated Grizzly caught slackin in the spring air",
+      "storyInput": "Saw a bear",
       "id": 3
     }
   ]
